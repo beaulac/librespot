@@ -88,3 +88,8 @@ assets = [
     ["target/release/librespot", "usr/bin/", "755"],
     ["contrib/librespot.service", "lib/systemd/system/", "644"]
 ]
+
+[profile.release]
+	lto = true
+	opt-level = 'z'
+
