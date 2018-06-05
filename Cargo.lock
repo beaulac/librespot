@@ -507,13 +507,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "librespot-protocol"
-version = "0.1.0"
-dependencies = [
- "protobuf 1.4.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
 name = "linear-map"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

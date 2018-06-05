@@ -1,4 +1,4 @@
-use byteorder::{LittleEndian, ReadBytesExt};
+use byteorder::{LittleEndian, ReadBytesExt, ByteOrder};
 use futures;
 use futures::sync::oneshot;
 use futures::{future, Future};
@@ -379,6 +379,9 @@ impl PlayerInternal {
                             *x = (*x as f32 * normalisation_factor) as i16;
                         }
                     }
+
+                    // Make sure we output in LE
+                    LittleEndian::from_slice_i16(&mut packet.data_mut());
 
                     if let Err(err) = self.sink.write(&packet.data()) {
                         error!("Could not write audio: {}", err);
